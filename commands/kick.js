@@ -2,7 +2,8 @@ module.exports = {
     name: 'kick',
     description: "this is a kick command!",
     execute(message, args, Discord){
-        if(message.member.roles.cache.has('1013598371790999552'))
+        const conf = require('../conf.json')
+        if(message.member.roles.cache.has(conf.modRoleID))
         {
           const member = message.mentions.users.first()
           if(member)

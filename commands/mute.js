@@ -4,8 +4,9 @@ module.exports = {
     name: 'mute',
     description: "this is a mute",
     execute(message, args, Discord){
+      const conf = require('../conf.json')
       const target = message.mentions.users.first();
-        if(message.member.roles.cache.has('1013598371790999552'))
+        if(message.member.roles.cache.has(conf.modRoleID))
         {
           
           if(target)

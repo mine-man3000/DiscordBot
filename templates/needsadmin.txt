@@ -2,7 +2,7 @@ module.exports = {
     name: '',
     description: "",
     execute(message, args, Discord){
-        if(message.member.roles.cache.has('1013598371790999552'))
+        if(message.member.roles.cache.has(conf.modRoleID))
         {
          
         }

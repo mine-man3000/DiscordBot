@@ -3,6 +3,7 @@ const client = new Discord.Client();
 const prefix = '~';
 const fs = require('fs');
 const env = require('dotenv');
+const conf = require('./conf.json')
  
 client.commands = new Discord.Collection();
  
@@ -12,7 +13,8 @@ for(const file of commandFiles){
  
     client.commands.set(command.name, command);
 }
- 
+
+
 client.once('ready', () => {
     console.log('Bot is online!');
   });
@@ -23,7 +25,7 @@ client.on('guildMemberAdd', guildMember =>{
 
 client.on('messageUpdate', (oldMessage, newMessage) => { // Old message may be undefined
     if (!oldMessage.author) return;
-    const MessageLog = client.channels.cache.find(channel => channel.id ==='1018390757960327178');
+    const channel = client.channels.cache.get(conf.botLogChannelID)
     var embed = new Discord.MessageEmbed()
         .setAuthor("Message by " + newMessage.author.username + " updated in #" + oldMessage.channel.name)
         .setTimestamp()
@@ -31,13 +33,11 @@ client.on('messageUpdate', (oldMessage, newMessage) => { // Old message may be u
         .addFields(
             {name: 'original:',value: oldMessage},
             {name: 'edit:', value: newMessage}    );
- MessageLog.send(embed);
+        channel.send(embed);
 })
 
-const { AuditLogEvent } = require('discord.js');
-
 client.on('messageDelete', async message => {
-    const channel = client.channels.cache.get('1018390757960327178')
+    const channel = client.channels.cache.get(conf.botLogChannelID)
 
     const embed = new Discord.MessageEmbed()
         .setTitle("Message Deleted")
@@ -47,8 +47,6 @@ client.on('messageDelete', async message => {
         .setTimestamp();
         channel.send(embed)
 });
-
-
 
 client.on('message', message =>{
     if(message.author.username == "mineman" && message.content == "uwu")
@@ -144,6 +142,5 @@ client.on('message', message =>{
           message.channel.send("error command \"" + command + "\" not found")
     }
 });
-const conf = require('./conf.json')
 
 client.login(conf.token)

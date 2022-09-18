@@ -2,7 +2,8 @@ module.exports = {
     name: 'modtest',
     description: "",
     execute(message, args, Discord){
-        if(message.member.roles.cache.has('1013598371790999552'))
+        const conf = require('../conf.json')
+        if(message.member.roles.cache.has(conf.modRoleID))
         {
             message.channel.send("you got the power!")
         }
