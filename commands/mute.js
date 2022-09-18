@@ -6,7 +6,7 @@ module.exports = {
 	execute(message, args, Discord) {
 		const conf = require('../conf.json');
 		if (!message.member.roles.cache.has(conf.modRoleID)) {
-			message.channel.send('You don\'t have permissions to use this commands');
+			message.channel.send('You don\'t have permissions to use this command!');
 			return;
 		}
 		const target = message.mentions.users.first();
