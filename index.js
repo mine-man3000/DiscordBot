@@ -2,9 +2,8 @@ const Discord = require('discord.js');
 const client = new Discord.Client();
 const prefix = '~';
 const fs = require('fs');
-const env = require('dotenv');
-const conf = require('./conf.json')
- 
+const conf = require('./conf.json');
+
 client.commands = new Discord.Collection();
  
 const commandFiles = fs.readdirSync('./commands/').filter(file => file.endsWith('.js'));
@@ -22,6 +21,7 @@ client.once('ready', () => {
 client.on('guildMemberAdd', guildMember =>{
   console.log(guildMember.username + "joined");
 });
+
 
 client.on('messageUpdate', (oldMessage, newMessage) => { // Old message may be undefined
     if (!oldMessage.author) return;

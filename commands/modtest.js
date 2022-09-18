@@ -9,7 +9,7 @@ module.exports = {
         }
         else
         {
-          message.channel.send('You don\'t have permissions to use this commands');
+          message.channel.send('You don\'t have permissions to use the mod commands');
         }
     }
 }
