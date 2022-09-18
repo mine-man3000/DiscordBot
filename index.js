@@ -1,4 +1,3 @@
-const mySecret = 'MTAwOTM0MjI2NzEyMDY4NTEzNw.GZ-utI.M554rsFZ7al7WWDJK77g7Y0mKxGgf5i7LCzs2c'
 const Discord = require('discord.js');
 const client = new Discord.Client();
 const prefix = '~';
