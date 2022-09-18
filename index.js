@@ -111,15 +111,15 @@ client.on('message', message =>{
           break;
 
       case "ban":
-          client.commands.get('ban').execute(message, args, Discord);
+          client.commands.get('ban').execute(message, args, Discord, client);
+          break;
+      
+      case "kick":
+          client.commands.get('kick').execute(message, args, Discord, client);
           break;
 
       case "mute":
           client.commands.get('mute').execute(message, args, Discord);
-          break;
-
-      case "unmute":
-          client.commands.get('unmute').execute(message, args, Discord);
           break;
 
       case "unmute":
