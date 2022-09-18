@@ -1,42 +1,41 @@
 const ms = require('ms');
 
 module.exports = {
-    name: 'mute',
-    description: "this is a mute",
-    execute(message, args, Discord){
-      const conf = require('../conf.json')
-      const target = message.mentions.users.first();
-        if(message.member.roles.cache.has(conf.modRoleID))
-        {
-          
-          if(target)
-          {
-            let muteRole = message.guild.roles.cache.find(role => role.name === 'muted');
+	name: 'mute',
+	description: "this is a mute",
+	execute(message, args, Discord) {
+		const conf = require('../conf.json');
+		if (!message.member.roles.cache.has(conf.modRoleID)) {
+			message.channel.send('You don\'t have permissions to use this commands');
+			return;
+		}
+		const target = message.mentions.users.first();
 
-            let memberTarget = message.guild.members.cache.get(target.id);
+		if (!target) {
+			message.reply('We couldn\'t find that member');
+			return;
+		}
 
-            if (!args[1]) {
-                memberTarget.roles.add(muteRole.id);
-                message.channel.send(`<@${memberTarget.user.id}> has been muted`);
-                return
-            }
-            memberTarget.roles.add(muteRole.id);
-            message.channel.send(`<@${memberTarget.user.id}> has been muted for ${ms(ms(args[1]))}`);
- 
-            setTimeout(function () {
-                memberTarget.roles.remove(muteRole.id);
-            }, ms(args[1]));
+		let muteRole = message.guild.roles.cache.find(role => role.name === 'muted');
 
+		let memberTarget = message.guild.members.cache.get(target.id);
 
-          }
-          else
-          {
-           message.channel.send('we couldn\'t find that member');
-          }
-        }
-        else
-        {
-          message.channel.send('You don\'t have permissions to use this commands');
-        }
-    }
+		if (!args[1]) {
+			memberTarget.roles.add(muteRole.id);
+			message.reply(`<@${memberTarget.user.id}> has been muted`);
+			// TODO: Log this in the log channel
+			return;
+		}
+		memberTarget.roles.add(muteRole.id);
+		// TODO: Save this info somewhere on the disk, not just set a timer, that way if the bot goes down, it can see if the user should be unmuted yet
+		message.reply(`<@${memberTarget.user.id}> has been muted for ${ms(ms(args[1]))}`);
+		// TODO: Log this in the log channel
+
+		setTimeout(
+			() => {
+				memberTarget.roles.remove(muteRole.id);
+			},
+			ms(args[1])
+		);
+	}
 }
