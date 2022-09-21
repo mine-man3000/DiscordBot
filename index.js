@@ -1,5 +1,7 @@
 const Discord = require('discord.js');
-const client = new Discord.Client();
+const client = new Discord.Client({
+	intents: [Discord.IntentsBitField.Flags.Guilds]
+});
 const prefix = '~';
 const fs = require('fs');
 const conf = require('./conf.json');
@@ -15,7 +17,7 @@ for (const file of commandFiles) {
 
 
 client.once('ready', () => {
-	console.log(`Bot is online!  User: ${client.username}`);
+	console.log(`Bot is online!  User: ${client.user.username}`);
 });
 
 /*
@@ -63,6 +65,7 @@ client.on('messageDelete', async message => {
 */
 
 client.on('message', message =>{
+	console.log(message);
 	if (message.author.username == "mineman" && message.content == "uwu") {
 		message.reply("uwu");
 	}
@@ -102,7 +105,12 @@ client.on('message', message =>{
 	as well as "seshos", send a description of SeshOS
 	*/
 	if ((lowercase.contains("what\'s") || lowercase.contains("what is")) && lowercase.contains("seshos")) {
-		message.channel.send("SeshOS is the hobby operating system mineman is making\r\ngithub: <https://github.com/mine-man3000/SeshOS>\r\nchannel: <#1016214331609849896>\r\nbeware of GUI and Shell in the kernel...")
+		message.channel.send (
+`SeshOS is the hobby operating system mineman is making
+GitHub: <https://github.com/mine-man3000/SeshOS>
+channel: <#1016214331609849896>
+beware of GUI and Shell in the kernel...`
+		)
 	}
 
 	if ((nameArray[0] == "I\'m" || nameArray[0] == "i\'m" || nameArray[0] == "Im" || nameArray[0] == "im") && !message.author.bot && someValue == 50) {
