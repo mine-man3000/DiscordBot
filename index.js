@@ -121,7 +121,7 @@ client.on('message', message =>{
 	const commandName = args.shift().toLowerCase();
 	let command = client.commands.get(commandName);
 	
-	if (command != NULL) {
+	if (command != null) {
 		command.execute(message, args, Discord);
 	}
 	else {
