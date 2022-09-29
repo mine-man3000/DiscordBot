@@ -1,33 +1,58 @@
+const { EmbedBuilder } = require('discord.js');
+
 module.exports = {
     name: 'embedtest',
     description: "tests embeds",
-    execute(message, args, Discord){
-        const array = message.content.split(" ")
-        let end_message = ""
-        if(message.content == "~embedtest") {
-            message.channel.send("you missed an argument silly")
-        }
-        else {
-            for (let i = 1; i < array.length; i++) {
-                end_message += array[i] + " ";}
-            const Embed = new Discord.MessageEmbed()
-            .setColor(0x0099FF)
-            .setTitle('Some title')
-            .setURL('https://discord.js.org/')
-            .setAuthor({ name: 'Some name', iconURL: 'https://i.imgur.com/AfFp7pu.png', url: 'https://discord.js.org' })
-            .setDescription('Some description here')
-            .setThumbnail('https://i.imgur.com/AfFp7pu.png')
-            .addFields(
-                { name: 'Regular field title', value: 'Some value here' },
-                { name: '\u200B', value: '\u200B' },
-                { name: 'Inline field title', value: 'Some value here', inline: true },
-                { name: 'Inline field title', value: 'Some value here', inline: true },
-            )
-            .addFields({ name: 'Inline field title', value: 'Some value here', inline: true })
-            .setImage('https://i.imgur.com/AfFp7pu.png')
-            .setTimestamp()
-            .setFooter('Some footer text here');        
-            message.channel.send(Embed);            
-        }
+    execute(ctx, Discord){
+        const exampleEmbed = {
+            color: 0x0099ff,
+            title: 'Some title',
+            url: 'https://discord.js.org',
+            author: {
+                name: 'Some name',
+                icon_url: 'https://i.imgur.com/AfFp7pu.png',
+                url: 'https://discord.js.org',
+            },
+            description: 'Some description here',
+            thumbnail: {
+                url: 'https://i.imgur.com/AfFp7pu.png',
+            },
+            fields: [
+                {
+                    name: 'Regular field title',
+                    value: 'Some value here',
+                },
+                {
+                    name: '\u200b',
+                    value: '\u200b',
+                    inline: false,
+                },
+                {
+                    name: 'Inline field title',
+                    value: 'Some value here',
+                    inline: true,
+                },
+                {
+                    name: 'Inline field title',
+                    value: 'Some value here',
+                    inline: true,
+                },
+                {
+                    name: 'Inline field title',
+                    value: 'Some value here',
+                    inline: true,
+                },
+            ],
+            image: {
+                url: 'https://i.imgur.com/AfFp7pu.png',
+            },
+            timestamp: new Date().toISOString(),
+            footer: {
+                text: 'Some footer text here',
+                icon_url: 'https://i.imgur.com/AfFp7pu.png',
+            },
+        };
+            
+        ctx.reply({ embeds: [exampleEmbed] });        
     }
 }

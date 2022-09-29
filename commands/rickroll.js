@@ -1,9 +1,9 @@
 module.exports = {
     name: 'rickroll',
-    description: "rickroll someone with tis",
-    execute(message, args, Discord){
+    description: "rickroll someone with this",
+    execute(ctx, Discord){
         const rickroll = require('./rickroll.json')
 
-        message.channel.send(rickroll.rickroll);
+        ctx.reply(rickroll.rickroll.join("\n"));
     }
 }

@@ -1,56 +1,66 @@
+const { EmbedBuilder } = require("discord.js");
+
 module.exports = {
 	name: 'help',
-	description: "tis a help command",
-	execute(message, args, Discord) {
-		const Embed = new Discord.MessageEmbed()
-			.setColor(0x0099FF)
-			.setTitle(`(Prefix: ${prefix}) Help:`)
-			.addFields({
-				name: 'fact:',
-				value: "Gives a random fact",
-				inline: false
-			})
-			.addFields({
-				name: 'keysmash:',
-				value: "Generates keysmashes",
-				inline: false
-			})
-			.addFields({
-				name: 'ping:',
-				value: "Replies with \"Pong!\"",
-				inline: false
-			})
-			.addFields({
-				name: 'rickroll:',
-				value: "Sends all the lyics to \"Never Gonna Give You Up\" by Rick Astley",
-				inline: false
-			})
-			.addFields({
-				name: 'MOD COMMANDS:',
-				value: "\u200B",
-				inline: false
-			})
-			.addFields({
-				name: 'ban:',
-				value: "Bans the member mentioned",
-				inline: false
-			})
-			.addFields({
-				name: 'kick:',
-				value: "Kicks the member mentioned",
-				inline: false
-			})
-			.addFields({
-				name: 'mute:',
-				value: "Mutes the member mentioned",
-				inline: false
-			})
-			.addFields({
-				name: 'unmute:',
-				value: "Unmutes the member mentioned",
-				inline: false
-			})
-			.setFooter('you have been helped :P');
-		message.channel.send(Embed);
+	description: "this is a help command",
+	execute(ctx, Discord) {
+		const exampleEmbed = {
+            color: 0x0099ff,
+            title: 'Help:',
+            description: 'have some help',
+            fields: [
+                {
+					name: 'fact:',
+					value: "Gives a random fact",
+					inline: false
+				},
+				{
+					name: 'keysmash:',
+					value: "Generates keysmashes",
+					inline: false
+				},
+				{
+					name: 'ping:',
+					value: "Replies with \"Pong!\"",
+					inline: false
+				},
+				{
+					name: 'rickroll:',
+					value: "Sends all the lyics to \"Never Gonna Give You Up\" by Rick Astley",
+					inline: false
+				},
+				{
+					name: 'MOD COMMANDS:',
+					value: "\u200B",
+					inline: false
+				},
+				{
+					name: 'ban:',
+					value: "Bans the member mentioned",
+					inline: false
+				},
+				{
+					name: 'kick:',
+					value: "Kicks the member mentioned",
+					inline: false
+				},
+				{
+					name: 'mute:',
+					value: "Mutes the member mentioned",
+					inline: false
+				},
+				{
+					name: 'unmute:',
+					value: "Unmutes the member mentioned",
+					inline: false
+				}
+            ],
+            timestamp: new Date().toISOString(),
+            footer: {
+                text: 'you have been helped :P',
+            },
+        };
+            
+        ctx.reply({ embeds: [exampleEmbed] });
 	}
 }

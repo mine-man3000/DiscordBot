@@ -1,33 +1,36 @@
 module.exports = {
-    name: 'kick',
-    description: "this is a kick command!",
-    execute(message, args, Discord, client){
-        const conf = require('../conf.json')
-        if(message.member.roles.cache.has(conf.modRoleID))
-        {
-          const member = message.mentions.users.first()
-          if(member)
-          {
-            const memberTarget = message.guild.members.cache.get(member.id);
-            memberTarget.kick();
-            message.channel.send('You succesfully kicked that member');
-          }
-          else
-          {
-            message.channel.send('You couldn\'t kick that member!');
-          }
-        }
-        else
-        {
-          message.channel.send('You don\'t have permissions to use this commands');
-        }
+	name: 'kick',
+	description: "this is a kick command!",
+	execute(ctx, Discord, client) {
+		const member = ctx.options.getUser('user');
+		const conf = require('../conf.json')
+		if (!ctx.member.roles.cache.has(conf.modRoleID)) {
+			ctx.reply('You don\'t have permissions to use this command!');
+			return;
+		}
 
-        const channel = client.channels.cache.get(conf.botLogChannelID)
+		if (!member) {
+			ctx.reply('You couldn\'t kick that member!');
+			return;
+		}
+		const memberTarget = ctx.guild.members.cache.get(member.id);
+		memberTarget.kick();
+		ctx.reply('You succesfully kicked that member');
 
-        var embed = new Discord.MessageEmbed()
-            .setAuthor("Member kicked " + member.name)
-            .setTimestamp()
-            .setColor('#68ff61')
-            channel.send(embed);
-    }
+    	const channel = client.channels.cache.get(conf.botLogChannelID)
+    	const embed = {
+			author: {
+				name: `${ctx.user.username} has kicked a user`
+			},
+			fields: [
+				{
+					name: `User:`,
+					value: `${member.tag}`
+				}
+			],
+			timestamp: new Date().toISOString(),
+			color: 0x68ff61
+		}
+    	channel.send({ embeds: [embed] });
+	}
 }
