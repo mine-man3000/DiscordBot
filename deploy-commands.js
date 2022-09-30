@@ -29,6 +29,7 @@ const commands = [
 	new SlashCommandBuilder().setName('ping').setDescription('replies with "pong"'),
 	new SlashCommandBuilder().setName('rickroll').setDescription('rickrolls the user'),
 	new SlashCommandBuilder().setName('specs').setDescription('lists the specs of my machines'),
+	new SlashCommandBuilder().setName('react').setDescription('testing reaction roles'),
 ]
 	.map(command => command.toJSON());
 

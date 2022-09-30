@@ -17,7 +17,6 @@ module.exports = {
 		let muteRole = ctx.guild.roles.cache.find(role => role.name === 'muted');
 
 		let memberTarget = ctx.guild.members.cache.get(member.id);
-
 		
 		memberTarget.roles.add(muteRole.id);
 		ctx.reply(`<@${memberTarget.user.id}> has been muted`);

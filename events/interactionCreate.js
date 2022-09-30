@@ -51,8 +51,8 @@ module.exports = {
             client.commands.get('specs').execute(ctx, Discord);
             break;
         
-        case "buttontest":
-            client.commands.get('buttontest').execute(ctx, Discord);
+        case "react":
+            client.commands.get('react').execute(ctx, Discord);
             break;
 
         default:
