@@ -58,6 +58,7 @@ client.on("messageCreate", (message) => {
 client.on("interactionCreate", (ctx) => {
     client.commands.get('interactionCreate').execute(ctx, Discord, client);
 });
+
 client.on("messageReactionAdd", (reaction, user) => {
     console.log("reaction added")
     if (user.username != client.username) {
