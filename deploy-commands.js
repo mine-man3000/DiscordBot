@@ -7,6 +7,11 @@ const commands = [
 		option.setName('user')
 			.setDescription('the user to ban')
 			.setRequired(true)),
+	new SlashCommandBuilder().setName('throw').setDescription('throws an object at the user')
+	.addUserOption(option =>
+		option.setName('user')
+			.setDescription('the user to throw an object at')
+			.setRequired(false)),
 	new SlashCommandBuilder().setName('kick').setDescription('kicks the specified user')
 	.addUserOption(option =>
 		option.setName('user')
