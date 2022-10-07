@@ -55,6 +55,10 @@ module.exports = {
             client.commands.get('react').execute(ctx, Discord);
             break;
 
+        case "throw":
+            client.commands.get('throw').execute(ctx, Discord);
+            break;
+
         default:
             break;
     }
