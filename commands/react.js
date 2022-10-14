@@ -35,7 +35,6 @@ module.exports = {
 			color: 0x68ff61
 		}
         const message = await ctx.reply({ embeds: [embed], fetchReply: true });
-        let id = message.id;
         message.react("♀️");
         message.react("♂️");
         message.react("*️⃣");

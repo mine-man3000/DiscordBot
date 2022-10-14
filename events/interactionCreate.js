@@ -59,6 +59,10 @@ module.exports = {
             client.commands.get('throw').execute(ctx, Discord);
             break;
 
+        case "vote":
+            client.commands.get('vote').execute(ctx, Discord);
+            break;
+
         default:
             break;
     }
