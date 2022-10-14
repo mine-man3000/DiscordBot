@@ -40,7 +40,8 @@ client.on("ready", () => {
     channel.send("I have to log when I come online so I don't break :/");
 });
 
-client.on("messageUpdate", (oldMessage, newMessage) => {
+
+client.on("messageUpdate", (newMessage, oldMessage) => {
     client.commands.get('messageUpdate').execute(oldMessage, newMessage, client, config);
 });
 
@@ -59,99 +60,13 @@ client.on("interactionCreate", (ctx) => {
     client.commands.get('interactionCreate').execute(ctx, Discord, client);
 });
 
+
 client.on("messageReactionAdd", (reaction, user) => {
-    console.log("reaction added")
-    if (user.username != client.username) {
-        if (reaction.emoji.name == '♀️')
-        {
-            let memberTarget = context.guild.members.cache.get(user.id);
-		    let role = context.guild.roles.cache.find(role => role.name === 'she/her');
-            memberTarget.roles.add(role.id)
-        }
-        if (reaction.emoji.name == '♂️')
-        {
-            let memberTarget = context.guild.members.cache.get(user.id);
-		    let role = context.guild.roles.cache.find(role => role.name === 'he/him');
-            memberTarget.roles.add(role)
-        }
-        if (reaction.emoji.name == '*️⃣')
-        {
-            let memberTarget = context.guild.members.cache.get(user.id);
-		    let role = context.guild.roles.cache.find(role => role.name === 'they/them');
-            memberTarget.roles.add(role)
-        }
-        if (reaction.emoji.name == '🔴')
-        {
-            let memberTarget = context.guild.members.cache.get(user.id);
-		    let role = context.guild.roles.cache.find(role => role.name === 'red');
-            memberTarget.roles.add(role)
-        }
-        if (reaction.emoji.name == '🔵')
-        {
-            let memberTarget = context.guild.members.cache.get(user.id);
-		    let role = context.guild.roles.cache.find(role => role.name === 'blue');
-            memberTarget.roles.add(role)
-        }
-        if (reaction.emoji.name == '🟣')
-        {
-            let memberTarget = context.guild.members.cache.get(user.id);
-		    let role = context.guild.roles.cache.find(role => role.name === 'purple');
-            memberTarget.roles.add(role)
-        }
-        if (reaction.emoji.name == '🟠')
-        {
-            let memberTarget = context.guild.members.cache.get(user.id);
-		    let role = context.guild.roles.cache.find(role => role.name === 'orange');
-            memberTarget.roles.add(role)
-        }
-	}
+    client.commands.get('messageReactionAdd').execute(reaction, user);
 });
 
 client.on("messageReactionRemove", (reaction, user) => {
-    if (user.username != client.username) {
-        if (reaction.emoji.name == '♀️')
-        {
-            let memberTarget = context.guild.members.cache.get(user.id);
-		    let role = context.guild.roles.cache.find(role => role.name === 'she/her');
-            memberTarget.roles.remove(role.id)
-        }
-        if (reaction.emoji.name == '♂️')
-        {
-            let memberTarget = context.guild.members.cache.get(user.id);
-		    let role = context.guild.roles.cache.find(role => role.name === 'he/him');
-            memberTarget.roles.remove(role)
-        }
-        if (reaction.emoji.name == '*️⃣')
-        {
-            let memberTarget = context.guild.members.cache.get(user.id);
-		    let role = context.guild.roles.cache.find(role => role.name === 'they/them');
-            memberTarget.roles.remove(role)
-        }
-        if (reaction.emoji.name == '🔴')
-        {
-            let memberTarget = context.guild.members.cache.get(user.id);
-		    let role = context.guild.roles.cache.find(role => role.name === 'red');
-            memberTarget.roles.remove(role)
-        }
-        if (reaction.emoji.name == '🔵')
-        {
-            let memberTarget = context.guild.members.cache.get(user.id);
-		    let role = context.guild.roles.cache.find(role => role.name === 'blue');
-            memberTarget.roles.remove(role)
-        }
-        if (reaction.emoji.name == '🟣')
-        {
-            let memberTarget = context.guild.members.cache.get(user.id);
-		    let role = context.guild.roles.cache.find(role => role.name === 'purple');
-            memberTarget.roles.remove(role)
-        }
-        if (reaction.emoji.name == '🟠')
-        {
-            let memberTarget = context.guild.members.cache.get(user.id);
-		    let role = context.guild.roles.cache.find(role => role.name === 'orange');
-            memberTarget.roles.remove(role)
-        }
-	}
+    client.commands.get('messageReactionRemove').execute(reaction, user);
 });
 
 client.login(config.token);
