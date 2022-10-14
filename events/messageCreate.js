@@ -29,10 +29,10 @@ module.exports = {
         }
 
         if(array[0] == "I'm" && !message.author.bot && value1 == 50) {
-          for (let i = 1; i < array.length; i++) {
-            text += array[i] + " ";
-          }
-          message.channel.send("Hi " + text + "I'm DisNBot")
+            for (let i = 1; i < array.length; i++) {
+                text += array[i] + " ";
+            }
+            message.channel.send("Hi " + text + "I'm DisNBot")
         }
     }
 }
