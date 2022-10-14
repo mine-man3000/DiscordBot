@@ -27,6 +27,19 @@ const commands = [
 		option.setName('user')
 			.setDescription('the user to unmute')
 			.setRequired(true)),
+	new SlashCommandBuilder().setName('vote').setDescription('vote on something')
+	.addStringOption(option =>
+		option.setName('question')
+			.setDescription('what do you want to ask?')
+			.setRequired(true))
+	.addStringOption(option =>
+		option.setName('option1')
+			.setDescription('what\'s the first option?')
+			.setRequired(true))
+	.addStringOption(option =>
+		option.setName('option2')
+			.setDescription('what\'s second option ?')
+			.setRequired(true)),
 	new SlashCommandBuilder().setName('embedtest').setDescription('tests embeds'),
 	new SlashCommandBuilder().setName('fact').setDescription('sends a random fact'),
 	new SlashCommandBuilder().setName('help').setDescription('sends the help message'),
