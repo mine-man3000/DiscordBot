@@ -62,11 +62,11 @@ client.on("interactionCreate", (ctx) => {
 
 
 client.on("messageReactionAdd", (reaction, user) => {
-    client.commands.get('messageReactionAdd').execute(reaction, user);
+    client.commands.get('messageReactionAdd').execute(reaction, user, client, context);
 });
 
 client.on("messageReactionRemove", (reaction, user) => {
-    client.commands.get('messageReactionRemove').execute(reaction, user);
+    client.commands.get('messageReactionRemove').execute(reaction, user, client, context);
 });
 
 client.login(config.token);

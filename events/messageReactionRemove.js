@@ -1,6 +1,6 @@
 module.exports = {
     name: 'messageReactionRemove',
-    execute(reaction, user){
+    execute(reaction, user, client, context){
         if (user.username != client.username) {
             if (reaction.emoji.name == '♀️')
             {
