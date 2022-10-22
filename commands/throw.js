@@ -7,7 +7,7 @@ module.exports = {
 
         const randomMessage = objects.objects[Math.floor(Math.random() * objects.objects.length)]
 
-        if (Math.ceil(Math.random() * 100) >= 50)
+        if (Math.ceil(Math.random() * 100) >= 75)
         {
             ctx.reply(`you threw **a broken LFS install** into **/lost+found**`)
         }
