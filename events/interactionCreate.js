@@ -1,6 +1,6 @@
 module.exports = {
     name: 'interactionCreate',
-    execute(ctx, Discord, client){
+    execute(ctx, Discord, client, config){
     const command = ctx.commandName;
     switch(command) {
         case "ping":
@@ -24,19 +24,19 @@ module.exports = {
             break;
   
         case "ban":
-            client.commands.get('ban').execute(ctx, Discord, client);
+            client.commands.get('ban').execute(ctx, Discord, client, config);
             break;
         
         case "kick":
-            client.commands.get('kick').execute(ctx, Discord, client);
+            client.commands.get('kick').execute(ctx, Discord, client, config);
             break;
   
         case "mute":
-            client.commands.get('mute').execute(ctx, Discord);
+            client.commands.get('mute').execute(ctx, Discord, config);
             break;
   
         case "unmute":
-            client.commands.get('unmute').execute(ctx, Discord);
+            client.commands.get('unmute').execute(ctx, Discord, config);
             break;
   
         case "keysmash":

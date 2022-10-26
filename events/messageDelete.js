@@ -1,8 +1,7 @@
 module.exports = {
     name: 'messageDelete',
     execute(message, client, config){
-        const channel = client.channels.cache.get(config.botLogChannelID);
-        if(!message.author.bot)
+        if(message.author.id != "1009342267120685137")
         {
             const embed = {
                 color: 0x68ff61,
@@ -17,6 +16,13 @@ module.exports = {
                     },
                 ]
             }
+            var server
+            for(i in config.guild) {
+                if(config.guild[i] == newMessage.guildId) {
+                    server = config.botLogChannelID[i]
+                }
+            }
+            const channel = client.channels.cache.get(server);
             channel.send({ embeds: [embed] });    
         }
     }

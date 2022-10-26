@@ -1,6 +1,6 @@
 module.exports = {
     name: 'messageCreate',
-    execute(message){
+    execute(message, client, Discord){
         if (message.content.includes("uwu") && !message.author.bot) {
             message.channel.send("uwu");
         }

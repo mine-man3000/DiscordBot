@@ -1,10 +1,16 @@
 module.exports = {
 	name: 'kick',
 	description: "this is a kick command!",
-	execute(ctx, Discord, client) {
+	execute(ctx, Discord, client, conf) {
 		const member = ctx.options.getUser('user');
-		const conf = require('../conf.json')
-		if (!ctx.member.roles.cache.has(conf.modRoleID)) {
+		var hasMod = false
+		for(i of conf.modRoleID) {
+			if (ctx.member.roles.cache.has(i)) {
+				hasMod = true
+			}
+		}
+
+		if(!hasMod) {
 			ctx.reply('You don\'t have permissions to use this command!');
 			return;
 		}
@@ -17,7 +23,6 @@ module.exports = {
 		memberTarget.kick();
 		ctx.reply('You succesfully kicked that member');
 
-    	const channel = client.channels.cache.get(conf.botLogChannelID)
     	const embed = {
 			author: {
 				name: `${ctx.user.username} has kicked a user`
@@ -31,6 +36,13 @@ module.exports = {
 			timestamp: new Date().toISOString(),
 			color: 0x68ff61
 		}
-    	channel.send({ embeds: [embed] });
+		var server
+        for(i in conf.guild) {
+            if(conf.guild[i] == ctx.guildId) {
+                server = conf.botLogChannelID[i]
+            }
+        }
+        const channel = client.channels.cache.get(server);
+        channel.send({ embeds: [embed] });   
 	}
 }

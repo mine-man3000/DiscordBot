@@ -35,11 +35,12 @@ for(const file of eventFiles){
 }
 
 client.on("ready", () => {
-    const channel = client.channels.cache.get(config.botLogChannelID)
     console.log("Logged in as " + client.user.tag);
-    channel.send("I have to log when I come online so I don't break :/");
+    for(i of config.botLogChannelID) {
+        const channel = client.channels.cache.get(i)
+        channel.send("I have to log when I come online so I don't break :/");
+    }
 });
-
 
 client.on("messageUpdate", (newMessage, oldMessage) => {
     client.commands.get('messageUpdate').execute(oldMessage, newMessage, client, config);
@@ -53,11 +54,11 @@ let context = null;
 
 client.on("messageCreate", (message) => {
     context = message;
-    client.commands.get('messageCreate').execute(message);
+    client.commands.get('messageCreate').execute(message, client, Discord);
 })
 
 client.on("interactionCreate", (ctx) => {
-    client.commands.get('interactionCreate').execute(ctx, Discord, client);
+    client.commands.get('interactionCreate').execute(ctx, Discord, client, config);
 });
 
 

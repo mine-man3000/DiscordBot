@@ -3,8 +3,14 @@ module.exports = {
 	description: "this is an unmute",
 	execute(ctx, Discord) {
 		const member = ctx.options.getUser('user');
-		const conf = require('../conf.json');
-		if (!ctx.member.roles.cache.has(conf.modRoleID)) {
+		var hasMod = false
+		for(i of conf.modRoleID) {
+			if (ctx.member.roles.cache.has(i)) {
+				hasMod = true
+			}
+		}
+
+		if(!hasMod) {
 			ctx.reply('You don\'t have permissions to use this command!');
 			return;
 		}
