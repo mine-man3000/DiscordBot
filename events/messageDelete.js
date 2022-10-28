@@ -1,6 +1,11 @@
 module.exports = {
     name: 'messageDelete',
     execute(message, client, config){
+        newContent = "Empty Message"
+        if(message.content != null)
+        {
+            newContent = message.content
+        }
         const embed = {
             color: 0x68ff61,
             title: `A message in #${message.channel.name} has been deleted`,
@@ -10,7 +15,7 @@ module.exports = {
             fields: [
                 {
                     name: "Message:",
-                    value: `${message}`,
+                    value: `${newContent}`,
                 },
             ]
         }
