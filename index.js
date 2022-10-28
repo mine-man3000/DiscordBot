@@ -36,10 +36,6 @@ for(const file of eventFiles){
 
 client.on("ready", () => {
     console.log("Logged in as " + client.user.tag);
-    for(i of config.botLogChannelID) {
-        const channel = client.channels.cache.get(i)
-        channel.send("I have to log when I come online so I don't break :/");
-    }
 });
 
 client.on("messageUpdate", (newMessage, oldMessage) => {
@@ -50,10 +46,7 @@ client.on("messageDelete", async message => {
     client.commands.get('messageDelete').execute(message, client, config);
 });
 
-let context = null;
-
 client.on("messageCreate", (message) => {
-    context = message;
     client.commands.get('messageCreate').execute(message, client, Discord);
 })
 
@@ -61,13 +54,52 @@ client.on("interactionCreate", (ctx) => {
     client.commands.get('interactionCreate').execute(ctx, Discord, client, config);
 });
 
-
-client.on("messageReactionAdd", (reaction, user) => {
-    client.commands.get('messageReactionAdd').execute(reaction, user, client, context);
+client.on("guildBanAdd", function(guild, user){
+    const embed = {
+        color: 0x68ff61,
+        title: `${user.tag} has been banned without using me`,
+        author: {
+            name: `${user.tag}`,
+        },
+        fields: [
+            {
+                name: "next time use me to ban someone",
+                value: `I'm really just putting this here because this needs to be here or the bot will take a crap if this is blank`,
+            },
+        ]
+    }
+    var server
+    for(i in config.guild) {
+        if(config.guild[i] == message.guildId) {
+            server = config.botLogChannelID[i]
+        }
+    }
+    const channel = client.channels.cache.get(server);
+    channel.send({ embeds: [embed] });    
 });
 
-client.on("messageReactionRemove", (reaction, user) => {
-    client.commands.get('messageReactionRemove').execute(reaction, user, client, context);
+client.on("guildBanRemove", function(guild, user){
+    const embed = {
+        color: 0x68ff61,
+        title: `${user.tag} has been unbanned without using me`,
+        author: {
+            name: `${user.tag}`,
+        },
+        fields: [
+            {
+                name: "next time use me to unban someone, wait I don't have an unban command",
+                value: `I'm really just putting this here because this needs to be here or the bot will take a crap if this is blank`,
+            },
+        ]
+    }
+    var server
+    for(i in config.guild) {
+        if(config.guild[i] == message.guildId) {
+            server = config.botLogChannelID[i]
+        }
+    }
+    const channel = client.channels.cache.get(server);
+    channel.send({ embeds: [embed] });    
 });
 
 client.login(config.token);
