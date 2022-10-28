@@ -30,7 +30,10 @@ module.exports = {
                 }
             }
             const channel = client.channels.cache.get(server);
-            channel.send({ embeds: [embed] });  
+            if(newMessage.content != oldMessage.content)
+            {
+                channel.send({ embeds: [embed] });  
+            }
         }
     }
 }
