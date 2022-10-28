@@ -50,10 +50,6 @@ module.exports = {
         case "specs":
             client.commands.get('specs').execute(ctx, Discord);
             break;
-        
-        case "react":
-            client.commands.get('react').execute(ctx, Discord);
-            break;
 
         case "throw":
             client.commands.get('throw').execute(ctx, Discord);
@@ -61,6 +57,10 @@ module.exports = {
 
         case "vote":
             client.commands.get('vote').execute(ctx, Discord);
+            break;
+
+        case "role":
+            client.commands.get('role').execute(ctx, config, client);
             break;
 
         default:
