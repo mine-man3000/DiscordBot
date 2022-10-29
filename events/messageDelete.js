@@ -2,15 +2,20 @@ module.exports = {
     name: 'messageDelete',
     execute(message, client, config){
         newContent = "Empty Message"
+        newAuthor = "Author unknown"
         if(message.content != null)
         {
             newContent = message.content
+        }
+        if(message.author != null)
+        {
+            newAuthor = message.author   
         }
         const embed = {
             color: 0x68ff61,
             title: `A message in #${message.channel.name} has been deleted`,
             author: {
-                name: `Message by ${message.author.tag}`,
+                name: `Message by ${newAuthor}`,
             },
             fields: [
                 {
