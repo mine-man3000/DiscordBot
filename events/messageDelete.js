@@ -9,7 +9,7 @@ module.exports = {
         }
         if(message.author != null)
         {
-            newAuthor = message.author   
+            newAuthor = message.author.tag
         }
         const embed = {
             color: 0x68ff61,
@@ -34,3 +34,4 @@ module.exports = {
         channel.send({ embeds: [embed] });    
     }
 }
+
