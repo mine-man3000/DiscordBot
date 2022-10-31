@@ -102,4 +102,27 @@ client.on("guildBanRemove", function(guild, user){
     channel.send({ embeds: [embed] });    
 });
 
+client.on("guildMemberAdd", member => {
+    var server
+    for(i in config.guild) {
+        if(config.guild[i] == member.guild.id) {
+            server = config.welcomeID[i]
+        }
+    }
+    const channel = client.channels.cache.get(server);
+    channel.send(`${member.user.tag} has joined the server`)
+});
+
+client.on("guildMemberRemove", function(member){
+    var server
+    console.log(member.user)
+    for(i in config.guild) {
+        if(config.guild[i] == member.guild.id) {
+            server = config.welcomeID[i]
+        }
+    }
+    const channel = client.channels.cache.get(server);
+    channel.send(`${member.user.tag} has left the server`)
+});
+
 client.login(config.token);

@@ -17,6 +17,14 @@ In order to use the bot create a ``conf.json`` file at the root of the repo and 
     "guild": [
         <server1>,
         <server2>
+    ],
+    "welcomeID": [
+        <server1>,
+        <server2>
+    ],
+    "leaveID": [
+        <server1>,
+        <server2>
     ]
 }
 ```
