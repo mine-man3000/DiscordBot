@@ -7,6 +7,10 @@ module.exports = {
         {
             newContent = message.content
         }
+        if(message.attachments.size > 0)
+        {
+            newContent = `deleted ${message.attachments.size} attachments`
+        }
         if(message.author != null)
         {
             newAuthor = message.author.tag
