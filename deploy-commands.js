@@ -40,6 +40,11 @@ const commands = [
 		option.setName('option2')
 			.setDescription('what\'s second option ?')
 			.setRequired(true)),
+	new SlashCommandBuilder().setName('role').setDescription('add/remove roles')
+	.addRoleOption(option =>
+		option.setName('role')
+			.setDescription('the role to remove/add')
+			.setRequired(true)),
 	new SlashCommandBuilder().setName('embedtest').setDescription('tests embeds'),
 	new SlashCommandBuilder().setName('fact').setDescription('sends a random fact'),
 	new SlashCommandBuilder().setName('help').setDescription('sends the help message'),
@@ -47,11 +52,6 @@ const commands = [
 	new SlashCommandBuilder().setName('ping').setDescription('replies with "pong"'),
 	new SlashCommandBuilder().setName('rickroll').setDescription('rickrolls the user'),
 	new SlashCommandBuilder().setName('specs').setDescription('lists the specs of my machines'),
-	new SlashCommandBuilder().setName('role').setDescription('add/remove roles')
-	.addRoleOption(option =>
-		option.setName('role')
-			.setDescription('the role to remove/add')
-			.setRequired(true))
 ]
 	.map(command => command.toJSON());
 
