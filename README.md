@@ -5,6 +5,7 @@ In order to use the bot create a ``conf.json`` file at the root of the repo and 
 ```
 {
     "token": <token>,
+    "client": <bot id>,
     "modRoleID": [
         <server1>,
         <server2>
@@ -13,7 +14,6 @@ In order to use the bot create a ``conf.json`` file at the root of the repo and 
         <server1>,
         <server2>
     ],
-    "client": <client id>,
     "guild": [
         <server1>,
         <server2>
