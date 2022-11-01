@@ -55,74 +55,19 @@ client.on("interactionCreate", (ctx) => {
 });
 
 client.on("guildBanAdd", function(guild, user){
-    const embed = {
-        color: 0x68ff61,
-        title: `${user.tag} has been banned without using me`,
-        author: {
-            name: `${user.tag}`,
-        },
-        fields: [
-            {
-                name: "next time use me to ban someone",
-                value: `I'm really just putting this here because this needs to be here or the bot will take a crap if this is blank`,
-            },
-        ]
-    }
-    var server
-    for(i in config.guild) {
-        if(config.guild[i] == message.guildId) {
-            server = config.botLogChannelID[i]
-        }
-    }
-    const channel = client.channels.cache.get(server);
-    channel.send({ embeds: [embed] });    
+    client.commands.get('guildBanAdd').execute(guild, client, user, config);
 });
 
 client.on("guildBanRemove", function(guild, user){
-    const embed = {
-        color: 0x68ff61,
-        title: `${user.tag} has been unbanned without using me`,
-        author: {
-            name: `${user.tag}`,
-        },
-        fields: [
-            {
-                name: "next time use me to unban someone, wait I don't have an unban command",
-                value: `I'm really just putting this here because this needs to be here or the bot will take a crap if this is blank`,
-            },
-        ]
-    }
-    var server
-    for(i in config.guild) {
-        if(config.guild[i] == message.guildId) {
-            server = config.botLogChannelID[i]
-        }
-    }
-    const channel = client.channels.cache.get(server);
-    channel.send({ embeds: [embed] });    
+    client.commands.get('guildBanRemove').execute(guild, client, user, config);
 });
 
 client.on("guildMemberAdd", member => {
-    var server
-    for(i in config.guild) {
-        if(config.guild[i] == member.guild.id) {
-            server = config.welcomeID[i]
-        }
-    }
-    const channel = client.channels.cache.get(server);
-    channel.send(`${member.user.tag} has joined the server`)
+    client.commands.get('guildMemberAdd').execute(client, member, config);
 });
 
 client.on("guildMemberRemove", function(member){
-    var server
-    console.log(member.user)
-    for(i in config.guild) {
-        if(config.guild[i] == member.guild.id) {
-            server = config.welcomeID[i]
-        }
-    }
-    const channel = client.channels.cache.get(server);
-    channel.send(`${member.user.tag} has left the server`)
+    client.commands.get('guildMemberRemove').execute(client, member, config);
 });
 
 client.login(config.token);
