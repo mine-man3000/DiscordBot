@@ -42,7 +42,7 @@ client.on("messageUpdate", (newMessage, oldMessage) => {
     client.commands.get('messageUpdate').execute(oldMessage, newMessage, client, config);
 });
 
-client.on("messageDelete", async message => {
+client.on("messageDelete", (message) => {
     client.commands.get('messageDelete').execute(message, client, config);
 });
 
@@ -54,19 +54,19 @@ client.on("interactionCreate", (ctx) => {
     client.commands.get('interactionCreate').execute(ctx, Discord, client, config);
 });
 
-client.on("guildBanAdd", function(guild, user){
+client.on("guildBanAdd", (guild, user) => {
     client.commands.get('guildBanAdd').execute(guild, client, user, config);
 });
 
-client.on("guildBanRemove", function(guild, user){
+client.on("guildBanRemove", (guild, user) => {
     client.commands.get('guildBanRemove').execute(guild, client, user, config);
 });
 
-client.on("guildMemberAdd", member => {
+client.on("guildMemberAdd", (member) => {
     client.commands.get('guildMemberAdd').execute(client, member, config);
 });
 
-client.on("guildMemberRemove", function(member){
+client.on("guildMemberRemove", (member) => {
     client.commands.get('guildMemberRemove').execute(client, member, config);
 });
 
