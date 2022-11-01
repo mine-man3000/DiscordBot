@@ -3,7 +3,7 @@ module.exports = {
     description: "add/remove roles",
     execute(ctx, conf, client){
         role = ctx.options.getRole('role')
-
+        
         let rolemap = ctx.guild.roles.cache
             .sort((a, b) => b.position - a.position)
             .map(r => r.name)
@@ -27,6 +27,12 @@ module.exports = {
 
         let memberTarget = ctx.guild.members.cache.get(ctx.member.id);
         
+        if(role.name == "@everyone")
+        {
+            ctx.reply({ content: `why are you trying to remove the @ everyone role?`, ephemeral: true });
+            return
+        }
+
         if(canGive)
         {
             if(ctx.member.roles.cache.has(role.id))
