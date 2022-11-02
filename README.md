@@ -40,3 +40,4 @@ TODO:
     log when someone is kicked/banned without using the bot
     log when roles change
     log the image(s) in a deleted message
+    fix the author and content being null when a message is deleted
