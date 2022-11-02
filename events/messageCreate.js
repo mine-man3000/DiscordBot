@@ -29,7 +29,7 @@ module.exports = {
         }
 
         let testForSeshOS = message.content.toLowerCase();
-        if (testForSeshOS.includes("what") && testForSeshOS.includes("seshos") && (testForSeshOS.includes("\'s") || testForSeshOS.includes("is"))) {
+        if (testForSeshOS.includes("what") && testForSeshOS.includes("seshos") && (testForSeshOS.includes("\'s") || testForSeshOS.includes("is")) && !message.author.bot) {
             message.channel.send("SeshOS is the hobby operating system mineman is making\ngithub: <https://github.com/mine-man3000/SeshOS>\nchannel: <#1016214331609849896>\nbeware of GUI and Shell in the kernel...")
         }
 
