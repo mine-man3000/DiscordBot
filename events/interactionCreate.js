@@ -63,6 +63,15 @@ module.exports = {
             client.commands.get('role').execute(ctx, config, client);
             break;
 
+        case "quote":
+            client.commands.get('quote').execute(ctx, config, client);
+            break;
+ 
+            case "wiki":
+            client.commands.get('wiki').execute(ctx, config, client);
+            break;
+        
+
         default:
             break;
         }

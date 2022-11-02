@@ -45,6 +45,16 @@ const commands = [
 		option.setName('role')
 			.setDescription('the role to remove/add')
 			.setRequired(true)),
+	new SlashCommandBuilder().setName('quote').setDescription('add a quote to the wiki channel')
+	.addIntegerOption(option =>
+		option.setName('number')
+			.setDescription('the number of messages to quote')
+			.setRequired(true)),
+	new SlashCommandBuilder().setName('wiki').setDescription('information to add to the wiki')
+	.addStringOption(option =>
+		option.setName('info')
+			.setDescription('the info which should be documented on the wiki')
+			.setRequired(true)),
 	new SlashCommandBuilder().setName('embedtest').setDescription('tests embeds'),
 	new SlashCommandBuilder().setName('fact').setDescription('sends a random fact'),
 	new SlashCommandBuilder().setName('help').setDescription('sends the help message'),
