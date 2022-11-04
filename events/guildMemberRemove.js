@@ -17,8 +17,8 @@ module.exports = {
             },
             fields: [
                 {
-                    name: "putting this here so I don't die",
-                    value: "putting this here so I don't die",
+                    name: `id: ${member.user.id}`,
+                    value: `\u200B`,
                 },
             ]
         }
