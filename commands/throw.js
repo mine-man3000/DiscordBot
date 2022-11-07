@@ -1,7 +1,7 @@
 module.exports = {
     name: 'throw',
     description: "throws a random object at a user",
-    execute(ctx, Discord){
+    execute(ctx, Discord, client, conf){
         const member = ctx.options.getUser('user');
         const objects = require('./objects.json')
 

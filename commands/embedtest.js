@@ -3,7 +3,7 @@ const { EmbedBuilder } = require('discord.js');
 module.exports = {
     name: 'embedtest',
     description: "tests embeds",
-    execute(ctx, Discord){
+    execute(ctx, Discord, client, conf){
         const exampleEmbed = {
             color: 0x0099ff,
             title: 'Some title',

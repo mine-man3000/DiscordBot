@@ -1,7 +1,7 @@
 module.exports = {
 	name: 'mute',
 	description: "this is a mute",
-	execute(ctx, Discord, conf) {
+	execute(ctx, Discord, client, conf) {
 		const member = ctx.options.getUser('user');
 		var hasMod = false
 		for(i of conf.modRoleID) {

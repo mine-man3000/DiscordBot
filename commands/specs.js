@@ -1,7 +1,7 @@
 module.exports = {
     name: 'specs',
     description: "list the specs of my stuff",
-    execute(ctx, Discord){
+    execute(ctx, Discord, client, conf){
         ctx.reply(
             "Chromebook 1: hostname, Fancy-Hat: OS: Fedora 36, CPU: i3-10110U, RAM: 8GB, GPU: integrated graphics\n" + 
             "Chromebook 2: hostname, fedora, OS: Fedora 36, CPU: Celeron N3060, RAM: 4GB, GPU: integrated graphics\n" + 

@@ -1,7 +1,7 @@
 module.exports = {
     name: 'wiki',
     description: "information to be added to the wiki",
-    execute(ctx, Discord){
+    execute(ctx, Discord, client, conf){
         info = ctx.options.getString('info')
         
         if(ctx.guild.id != "1013305096295174174")

@@ -1,7 +1,7 @@
 module.exports = {
 	name: 'keysmash',
 	description: "yes",
-	execute(ctx, Discord) {
+	execute(ctx, Discord, client, conf) {
 		var dictionary = "abcdefghijklmnopqrstuvwxyz"
 		let length = Math.ceil(Math.random() * 20);
 		let dictionaryIndex = Math.ceil(Math.random() * 25);

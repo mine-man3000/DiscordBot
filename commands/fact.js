@@ -1,7 +1,7 @@
 module.exports = {
     name: 'fact',
     description: "this is a random facts command",
-    execute(ctx, Discord){
+    execute(ctx, Discord, client, conf){
          
         const messages = require('./messages.json')
 

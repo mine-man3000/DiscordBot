@@ -1,7 +1,7 @@
 module.exports = {
     name: 'role',
     description: "add/remove roles",
-    execute(ctx, conf, client){
+    execute(ctx, Discord, client, conf){
         role = ctx.options.getRole('role')
         
         let rolemap = ctx.guild.roles.cache

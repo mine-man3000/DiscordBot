@@ -6,7 +6,7 @@ const config = require("./conf.json")
 const client = new Client({
 	intents: [
 		GatewayIntentBits.Guilds,
-		GatewayIntentBits.GuildMessages,
+        GatewayIntentBits.GuildMessages,
 		GatewayIntentBits.MessageContent,
 		GatewayIntentBits.GuildMembers,
         GatewayIntentBits.GuildMessageReactions,
@@ -29,7 +29,6 @@ for(const file of commandFiles){
 const eventFiles = fs.readdirSync('./events/').filter(file => file.endsWith('.js'));
 for(const file of eventFiles){
     const command = require(`./events/${file}`);
- 
     client.commands.set(command.name, command);
 }
 
@@ -50,7 +49,7 @@ client.on("messageCreate", (message) => {
 })
 
 client.on("interactionCreate", (ctx) => {
-    client.commands.get('interactionCreate').execute(ctx, Discord, client, config);
+    client.commands.get(ctx.commandName).execute(ctx, Discord, client, config)
 });
 
 client.on("guildBanAdd", (guild, user) => {

@@ -1,7 +1,7 @@
 module.exports = {
     name: 'vote',
     description: "cast a vote",
-    async execute(ctx, Discord){
+    async execute(ctx, Discord, client, conf){
 		const question = ctx.options.getString('question');        
 		const option1 = ctx.options.getString('option1');        
 		const option2 = ctx.options.getString('option2');
