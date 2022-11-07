@@ -1,6 +1,6 @@
 module.exports = {
     name: 'guildMemberAdd',
-    execute(client, member, config){
+    execute(client, member, config, guild){
         var server
         for(i in config.guild) {
             if(config.guild[i] == member.guild.id) {

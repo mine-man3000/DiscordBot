@@ -62,11 +62,11 @@ client.on("guildBanRemove", (guild, user) => {
 });
 
 client.on("guildMemberAdd", (member) => {
-    client.commands.get('guildMemberAdd').execute(client, member, config);
+    client.commands.get('guildMemberAdd').execute(client, member, config, guild);
 });
 
 client.on("guildMemberRemove", (member) => {
-    client.commands.get('guildMemberRemove').execute(client, member, config);
+    client.commands.get('guildMemberRemove').execute(client, member, config, guild);
 });
 
 client.login(config.token);
