@@ -25,7 +25,7 @@ module.exports = {
 		let memberTarget = ctx.guild.members.cache.get(member.id);
 		
 		memberTarget.roles.remove(muteRole.id);
-		ctx.reply(`<@${memberTarget.user.id}> has been unmuted`);
+		ctx.reply(`${memberTarget.user.tag} has been unmuted`);
 		// TODO: Log this in the log channel
 		return;
 	}
