@@ -68,4 +68,8 @@ client.on("guildMemberRemove", (member) => {
     client.commands.get('guildMemberRemove').execute(client, member, config, guild);
 });
 
+client.on("guildMemberUpdate", (oldMember, newMember) => {
+    client.commands.get('guildMemberUpdate').execute(oldMember, newMember, config, client);
+});
+
 client.login(config.token);
