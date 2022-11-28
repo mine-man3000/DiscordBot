@@ -38,4 +38,3 @@ module.exports = {
         channel.send({ embeds: [embed] });    
     }
 }
-
