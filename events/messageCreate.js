@@ -1,7 +1,7 @@
 module.exports = {
     name: 'messageCreate',
     execute(message, client, Discord){
-        if (message.content.includes("uwu") && !message.author.bot) {
+        if (message.content.toLowerCase().includes("uwu") && !message.author.bot) {
             message.channel.send("uwu");
         }
         if(message.content == ":3")
