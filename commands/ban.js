@@ -43,6 +43,6 @@ module.exports = {
             }
         }
         const channel = client.channels.cache.get(server);
-        channel.send({ embeds: [embed] });   
+        channel.send({ embeds: [embed] });
 	}
 }
