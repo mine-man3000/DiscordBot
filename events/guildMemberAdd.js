@@ -1,13 +1,13 @@
 module.exports = {
     name: 'guildMemberAdd',
-    execute(client, member, config){
+    execute(client, member, config) {
         var server
-        for(i in config.guild) {
-            if(config.guild[i] == member.guild.id) {
+        for (i in config.guild) {
+            if (config.guild[i] == member.guild.id) {
                 server = config.welcomeID[i]
             }
         }
-        const channel = client.channels.cache.get(server);
+        var channel = client.channels.cache.get(server);
         channel.send(`${member.user.tag} has joined the server`)
         const embed = {
             color: 0x68ff61,
@@ -22,8 +22,8 @@ module.exports = {
                 },
             ]
         }
-        for(i in config.guild) {
-            if(config.guild[i] == member.guild.id) {
+        for (i in config.guild) {
+            if (config.guild[i] == member.guild.id) {
                 server = config.botLogChannelID[i]
             }
         }
