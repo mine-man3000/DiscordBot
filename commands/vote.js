@@ -1,9 +1,9 @@
 module.exports = {
     name: 'vote',
     description: "cast a vote",
-    async execute(ctx, Discord, client, conf){
-		const question = ctx.options.getString('question');        
-		const option1 = ctx.options.getString('option1');        
+    async execute(ctx, Discord, client, conf) {
+		const question = ctx.options.getString('question');
+		const option1 = ctx.options.getString('option1');
 		const option2 = ctx.options.getString('option2');
         const embed = {
 			author: {
@@ -28,17 +28,15 @@ module.exports = {
         const message = await ctx.reply({ embeds: [embed], fetchReply: true });
         message.react('🇦');
         message.react("🇧");
-        console.log("Hello");
-        setTimeout(() => {
-            const userReactions = message.reactions.cache.filter(reaction => reaction.users.cache.has(ctx.user.id));
+        const userReactions = message.reactions.cache.filter(reaction => reaction.users.cache.has(ctx.user.id));
 
-            try {
-                for (const reaction of userReactions.values()) {
-                    console.log(reaction)
-                }
-            } catch (error) {
-                console.error('Failed to remove reactions.');
+        try {
+            for (const reaction of userReactions.values()) {
+                console.log(reaction)
             }
-        }, 5000);
+        }
+        catch (error) {
+            console.error('Failed to remove reactions.');
+        }
     }
 }
