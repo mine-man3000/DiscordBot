@@ -1,7 +1,7 @@
 module.exports = {
     name: 'quote',
     description: "quotes the given number of messages",
-    execute(ctx, Discord, client, conf){
+    execute(ctx, Discord, client, conf) {
         const num = ctx.options.getInteger('number')
         var msg = ""
         ctx.channel.messages.fetch({ limit: num }).then(messages => {

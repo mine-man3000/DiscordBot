@@ -2,23 +2,26 @@ const Diff = require("diff")
 
 module.exports = {
     name: 'messageUpdate',
-    execute(newMessage, oldMessage, client, config){
+    execute(newMessage, oldMessage, client, config) {
         const diff_chunks = [];
+        
         Diff.diffWords(oldMessage.content, newMessage.content).forEach((chunk) => {
             let md = '';
             let diff = '';
 
 
-            if (chunk.added)
+            if (chunk.added) {
                 md = '**';
-            else if (chunk.removed)
+            }
+            else if (chunk.removed) {
                 md = '~~';
+            }
 
             diff += md + chunk.value + md;
             diff_chunks.push(diff)
             //console.log();
         })
-        if(newMessage.author.id != "985213199248924722")
+        if (newMessage.author.id != "985213199248924722")
         {
             if (!oldMessage.author) {
                 return;
@@ -45,13 +48,13 @@ module.exports = {
                 ]
             }
             var server
-            for(i in config.guild) {
-                if(config.guild[i] == newMessage.guildId) {
+            for (i in config.guild) {
+                if (config.guild[i] == newMessage.guildId) {
                     server = config.botLogChannelID[i]
                 }
             }
             const channel = client.channels.cache.get(server);
-            if(newMessage.content != oldMessage.content)
+            if (newMessage.content != oldMessage.content)
             {
                 channel.send({ embeds: [embed] });  
             }
@@ -60,11 +63,13 @@ module.exports = {
 }
 
 function elide(str, max_len) {
-    if (!str)
+    if (!str) {
         return;
+    }
 
-    if (str.length > max_len)
+    if (str.length > max_len) {
         return str.substr(0, max_len - 3) + '...';
+    }
 
     return str;
 }

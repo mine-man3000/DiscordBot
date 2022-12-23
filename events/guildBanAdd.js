@@ -1,6 +1,6 @@
 module.exports = {
     name: 'guildMemberAdd',
-    execute(guild, client, user, config){
+    execute(guild, client, user, config) {
         const embed = {
             color: 0x68ff61,
             title: `${user.tag} has been banned`,
@@ -15,8 +15,8 @@ module.exports = {
             ]
         }
         var server
-        for(i in config.guild) {
-            if(config.guild[i] == guild.id) {
+        for (i in config.guild) {
+            if (config.guild[i] == guild.id) {
                 server = config.botLogChannelID[i]
             }
         }

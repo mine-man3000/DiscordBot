@@ -4,13 +4,13 @@ module.exports = {
 	execute(ctx, Discord, client, conf) {
 		const member = ctx.options.getUser('user');
 		var hasMod = false
-		for(i of conf.modRoleID) {
+		for (i of conf.modRoleID) {
 			if (ctx.member.roles.cache.has(i)) {
 				hasMod = true
 			}
 		}
 
-		if(!hasMod) {
+		if (!hasMod) {
 			ctx.reply('You don\'t have permissions to use this command!');
 			return;
 		}
@@ -37,8 +37,8 @@ module.exports = {
 			color: 0x68ff61
 		}
 		var server
-        for(i in conf.guild) {
-            if(conf.guild[i] == ctx.guildId) {
+        for (i in conf.guild) {
+            if (conf.guild[i] == ctx.guildId) {
                 server = conf.botLogChannelID[i]
             }
         }

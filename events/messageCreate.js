@@ -1,21 +1,27 @@
 module.exports = {
     name: 'messageCreate',
-    execute(message, client, Discord){
+    execute(message, client, Discord) {
         if (message.content.toLowerCase().includes("uwu") && !message.author.bot) {
             message.channel.send("uwu");
         }
-        if(message.content == ":3")
-        message.channel.send("colon three")
+        
+        if (message.content == ":3") {
+            message.channel.send("colon three")
+        }
 
-        if(message.content == "4:")
+        if (message.content == "4:") {
             message.channel.send("four colon")
+        }
 
-        if(message.content == "<@1009342267120685137>")
+        if (message.content == "<@1009342267120685137>") {
             client.commands.get('help').execute(message, "", Discord);
+        }
 
         let text = ""
 
-        if(message.content[1] == "~") return;
+        if (message.content[1] == "~") {
+            return;
+        }
 
         const array = message.content.split(" ")
 
@@ -23,17 +29,27 @@ module.exports = {
 
         lowercase = message.content.toLowerCase();
 
-        if(lowercase.includes("soc"))
-        {
+        if (lowercase.includes("soc")) {
             message.react("🧦")
         }
 
         let testForSeshOS = message.content.toLowerCase();
-        if (testForSeshOS.includes("what") && testForSeshOS.includes("seshos") && (testForSeshOS.includes("\'s") || testForSeshOS.includes("is")) && !message.author.bot) {
-            message.channel.send("SeshOS is the hobby operating system mineman is making\ngithub: <https://github.com/mine-man3000/SeshOS>\nchannel: <#1016214331609849896>\nbeware of GUI and Shell in the kernel...")
+        if (
+            testForSeshOS.includes("what") && 
+            testForSeshOS.includes("seshos") && (
+                testForSeshOS.includes("\'s") || testForSeshOS.includes("is")
+            ) &&
+            !message.author.bot
+        ) {
+            message.channel.send (
+                "SeshOS is the hobby operating system mineman is making\n" +
+                "github: <https://github.com/mine-man3000/SeshOS>\n" +
+                "channel: <#1016214331609849896>\n" +
+                "beware of GUI and Shell in the kernel..."
+            )
         }
 
-        if(array[0] == "I'm" && !message.author.bot && value1 == 50) {
+        if (array[0] == "I'm" && !message.author.bot && value1 == 50) {
             for (let i = 1; i < array.length; i++) {
                 text += array[i] + " ";
             }

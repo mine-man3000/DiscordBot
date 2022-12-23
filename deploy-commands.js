@@ -68,7 +68,7 @@ const commands = [
 
 const rest = new REST({ version: '10' }).setToken(config.token);
 
-for(i of config.guild) {
+for (i of config.guild) {
 	rest.put(Routes.applicationGuildCommands(config.client, i), { body: commands })
 	.then((data) => console.log(`Successfully registered ${data.length} application commands.`))
 	.catch(console.error);

@@ -1,7 +1,7 @@
 module.exports = {
     name: 'role',
     description: "add/remove roles",
-    execute(ctx, Discord, client, conf){
+    execute(ctx, Discord, client, conf) {
         role = ctx.options.getRole('role')
         
         let rolemap = ctx.guild.roles.cache
@@ -12,13 +12,13 @@ module.exports = {
         var reachedRole = false
         var canGive     = false 
         
-        for(i of rolemap.split("\n"))
+        for (i of rolemap.split("\n"))
         {
-            if(i == "Bot")
+            if (i == "Bot")
             {
                 reachedRole = true;
             }
-            if(role.name == i && reachedRole == true)
+            if (role.name == i && reachedRole == true)
             {
                 canGive = true;
             }
@@ -27,15 +27,15 @@ module.exports = {
 
         let memberTarget = ctx.guild.members.cache.get(ctx.member.id);
         
-        if(role.name == "@everyone")
+        if (role.name == "@everyone")
         {
             ctx.reply({ content: `why are you trying to remove the @ everyone role?`, ephemeral: true });
             return
         }
 
-        if(canGive)
+        if (canGive)
         {
-            if(ctx.member.roles.cache.has(role.id))
+            if (ctx.member.roles.cache.has(role.id))
             {
 		        memberTarget.roles.remove(role);
                 ctx.reply({ content: `removed ${role.name}`, ephemeral: true });            
@@ -65,14 +65,14 @@ module.exports = {
 		}
 
         var server
-        for(i in conf.guild) {
-            if(conf.guild[i] == ctx.guildId) {
+        for (i in conf.guild) {
+            if (conf.guild[i] == ctx.guildId) {
                 server = conf.botLogChannelID[i]
             }
         }
         const channel = client.channels.cache.get(server);
         
-        if(canGive)
+        if (canGive)
         {
             channel.send({ embeds: [embed] });
         }

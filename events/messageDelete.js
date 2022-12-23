@@ -1,18 +1,15 @@
 module.exports = {
     name: 'messageDelete',
-    execute(message, client, config){
+    execute(message, client, config) {
         newContent = "Empty Message"
         newAuthor = "Author unknown"
-        if(message.content != null)
-        {
+        if (message.content != null) {
             newContent = message.content
         }
-        if(message.attachments.size > 0)
-        {
+        if (message.attachments.size > 0) {
             newContent = `deleted ${message.attachments.size} attachments`
         }
-        if(message.author != null)
-        {
+        if (message.author != null) {
             newAuthor = message.author.tag
         }
         const embed = {
@@ -29,8 +26,8 @@ module.exports = {
             ]
         }
         var server
-        for(i in config.guild) {
-            if(config.guild[i] == message.guildId) {
+        for (i in config.guild) {
+            if (config.guild[i] == message.guildId) {
                 server = config.botLogChannelID[i]
             }
         }

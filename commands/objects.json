@@ -1,7 +1,7 @@
 {
-	"objects": [
-		"the sponsor of today's video",
-		"a broken 'rm' command",
+    "objects": [
+        "the sponsor of today's video",
+        "a broken 'rm' command",
         "javascript exceptions",
         "techflash's eth0",
         "a broken Gentoo install",
@@ -12,7 +12,7 @@
         "a LÄMP",
         "[object Object]",
         "[object Map]",
-	    "Techflash's -Ofast Gentoo install",
+        "Techflash's -Ofast Gentoo install",
         "darkerbit's haunted comparison operator"
     ]
 }

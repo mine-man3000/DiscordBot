@@ -1,7 +1,7 @@
 module.exports = {
     name: 'throw',
     description: "throws a random object at a user",
-    execute(ctx, Discord, client, conf){
+    execute(ctx, Discord, client, conf) {
         const member = ctx.options.getUser('user');
         const objects = require('./objects.json')
 
@@ -16,11 +16,9 @@ module.exports = {
             if (member == null)
             {
                 ctx.reply(`you threw **${randomMessage}** at **a random person**`);
+                return;
             }
-            else
-            {
-                ctx.reply(`you threw **${randomMessage}** at **${member.username}**`);
-            }
+            ctx.reply(`you threw **${randomMessage}** at **${member.username}**`);
         }
     }
 }
