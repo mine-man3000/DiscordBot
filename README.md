@@ -35,8 +35,4 @@ the bot can be in as many servers as possible, just make sure it has the muted, 
 If you add, remove, or update slash commands in deploy-commands.js, run ``node deploy-commands.js`` and it will update it all.
 
 TODO:
-    log when people join
-    log when people leave
     log when someone is kicked/banned without using the bot
-    log when roles change
-    log the image(s) in a deleted message
