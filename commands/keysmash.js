@@ -8,7 +8,7 @@ module.exports = {
 
 		let messageToSend = "";
 
-		for (let index = 0; index < 3; index++) {
+		for (let i = 0; i < 3; i++) {
 			messageToSend += dictionary[dictionaryIndex]
 			dictionaryIndex = Math.ceil(Math.random() * 25);
 		}
