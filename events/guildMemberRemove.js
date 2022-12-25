@@ -11,7 +11,7 @@ module.exports = {
         channel.send(`${member.user.tag} has left the server`)
         const embed = {
             color: 0x68ff61,
-            title: `${member.user.tag} has been left the server`,
+            title: `${member.user.tag} has left the server`,
             author: {
                 name: `${member.user.tag}`,
             },

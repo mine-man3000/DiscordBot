@@ -11,7 +11,7 @@ module.exports = {
         channel.send(`${member.user.tag} has joined the server`)
         const embed = {
             color: 0x68ff61,
-            title: `${member.user.tag} has been joined the server`,
+            title: `${member.user.tag} has joined the server`,
             author: {
                 name: `${member.user.tag}`,
             },

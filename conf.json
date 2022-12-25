@@ -1,0 +1,20 @@
+{
+    "token":  ["bot-token"],
+    "client": ["application-id"],
+    "ownerid":["ownerid"],
+    "modRoleID": [
+        "modID1"
+    ],
+    "botLogChannelID": [
+        "botLogChannelID"
+    ],
+    "guild": [
+        "guildID"
+    ],
+    "welcomeID": [
+        "welcomechannelid"
+    ],
+    "leaveID": [
+        "leavechannelid"
+    ]
+}
