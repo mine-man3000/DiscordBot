@@ -1,6 +1,8 @@
 module.exports = {
     name: 'messageCreate',
     execute(message, client, Discord) {
+        console.log(`${message.author.tag}: ${message.content} <br>`)
+
         if (message.content.toLowerCase().includes("uwu") && !message.author.bot) {
             message.channel.send("uwu");
         }

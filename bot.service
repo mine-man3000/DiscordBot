@@ -1,0 +1,13 @@
+[Unit]
+Description=DisNBot
+After=network.target
+
+[Service]
+WorkingDirectory=
+Type=simple
+User=mineman
+ExecStart=/usr/bin/node ./start.sh
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target

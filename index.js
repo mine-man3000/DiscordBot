@@ -18,6 +18,9 @@ const client = new Client({
     ],
 });
 
+var log = fs.createWriteStream('logs/index.html');
+process.stdout.write = process.stderr.write = log.write.bind(log);
+
 client.commands = new Collection();
 
 const commandFiles = fs.readdirSync('./commands/').filter(file => file.endsWith('.js'));
@@ -33,7 +36,7 @@ for (const file of eventFiles) {
 }
 
 client.on("ready", () => {
-    console.log("Logged in as " + client.user.tag);
+    console.log(`<script src="main.js"></script>\n<pre>\nLogged in as ${client.user.tag}`);
 });
 
 client.on("messageUpdate", (newMessage, oldMessage) => {
