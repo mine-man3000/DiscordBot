@@ -1,13 +1,13 @@
 [Unit]
-Description=Discord Bot
+Description=DisNBot
 After=network.target
 
 [Service]
-WorkingDirectory=
+WorkingDirectory=/home/mineman/Coding/DisNBot
 Type=simple
-User=
-ExecStart=/usr/bin/node ./start.sh
-Restart=on-failure
+User=mineman
+ExecStart=/bin/bash ./start.sh
+Restart=always
 
 [Install]
 WantedBy=multi-user.target
