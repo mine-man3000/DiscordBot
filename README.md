@@ -41,6 +41,7 @@ If you add, remove, or update slash commands in deploy-commands.js, run ``node d
 if you want to start the bot as a systemd service: 
 * open bot.service
 * change ``WorkingDirectory=`` to ``WorkingDirectory=(directory for bot)``
+* change ``User=`` to ``User=(yout username)``
 * ``sudo cp bot.service /lib/systemd/system/``
 * ``sudo systemctl enable --now bot``
 
