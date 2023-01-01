@@ -36,7 +36,7 @@ for (const file of eventFiles) {
 }
 
 client.on("ready", () => {
-    console.log(`<script src="main.js"></script>\n<pre>\nLogged in as ${client.user.tag}`);
+    console.log(`Logged in as ${client.user.tag}`);
 });
 
 client.on("messageUpdate", (newMessage, oldMessage) => {
