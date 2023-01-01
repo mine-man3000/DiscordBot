@@ -12,7 +12,7 @@ module.exports = {
             const embed = {
                 title: 'User Update',
                 author: {
-                    name: `${newMember.tag} has changed their nickname`
+                    name: `${newMember.user.username}#${newMember.user.discriminator} (${newMember.user.id}) has changed their nickname`
                 },
                 fields: [
                     {
