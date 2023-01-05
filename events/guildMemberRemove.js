@@ -27,7 +27,9 @@ module.exports = {
                 server = config.botLogChannelID[i]
             }
         }
-        channel = client.channels.cache.get(server);
-        channel.send({ embeds: [embed] });
+        if(server) {
+			const channel = client.channels.cache.get(server);
+			channel.send({ embeds: [embed] });   	
+		}
     }
 }

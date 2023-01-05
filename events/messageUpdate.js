@@ -54,7 +54,7 @@ module.exports = {
                 }
             }
             const channel = client.channels.cache.get(server);
-            if (newMessage.content != oldMessage.content)
+            if (newMessage.content != oldMessage.content && server)
             {
                 channel.send({ embeds: [embed] });  
             }

@@ -48,6 +48,7 @@ module.exports = {
         else
         {
             ctx.reply({ content: `sorry, I can't give you ${role.name}`, ephemeral: true });
+            return
         }
 
         const embed = {
@@ -70,11 +71,10 @@ module.exports = {
                 server = conf.botLogChannelID[i]
             }
         }
-        const channel = client.channels.cache.get(server);
-        
-        if (canGive)
-        {
-            channel.send({ embeds: [embed] });
-        }
+    
+        if(server && canGive) {
+			const channel = client.channels.cache.get(server);
+			channel.send({ embeds: [embed] });   	
+		}
     }
 }

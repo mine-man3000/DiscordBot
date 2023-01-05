@@ -29,8 +29,10 @@ module.exports = {
                     server = config.botLogChannelID[i]
                 }
             }
-            const channel = client.channels.cache.get(server);
-            channel.send({ embeds: [embed] })    
+            if(server) {
+                const channel = client.channels.cache.get(server);
+                channel.send({ embeds: [embed] });   	
+            }   
         }
 
         if (oldMember.tag != newMember.tag) {
@@ -54,8 +56,10 @@ module.exports = {
                     server = config.botLogChannelID[i]
                 }
             }
-            const channel = client.channels.cache.get(server);
-            channel.send({ embeds: [embed] })    
+            if(server) {
+                const channel = client.channels.cache.get(server);
+                channel.send({ embeds: [embed] });   	
+            }    
         }
 
         if (oldCount != newCount) {
@@ -80,8 +84,10 @@ module.exports = {
                         server = config.botLogChannelID[i]
                     }
                 }
-                const channel = client.channels.cache.get(server);
-                channel.send({ embeds: [embed] })    
+                if(server) {
+                    const channel = client.channels.cache.get(server);
+                    channel.send({ embeds: [embed] });   	
+                }   
             }
         }
     }

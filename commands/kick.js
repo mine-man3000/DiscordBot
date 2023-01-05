@@ -21,7 +21,7 @@ module.exports = {
 		}
 		const memberTarget = ctx.guild.members.cache.get(member.id);
 		memberTarget.kick();
-		ctx.reply('You succesfully kicked that member');
+		ctx.reply('You successfully kicked that member');
 
     	const embed = {
 			author: {
@@ -42,7 +42,10 @@ module.exports = {
                 server = conf.botLogChannelID[i]
             }
         }
-        const channel = client.channels.cache.get(server);
-        channel.send({ embeds: [embed] });   
+
+		if(server) {
+			const channel = client.channels.cache.get(server);
+			channel.send({ embeds: [embed] });   	
+		}
 	}
 }
