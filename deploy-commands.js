@@ -55,6 +55,11 @@ const commands = [
 		option.setName('info')
 			.setDescription('the info which should be documented on the wiki')
 			.setRequired(true)),
+	new SlashCommandBuilder().setName('ticket').setDescription('sends a ticket to the mods ticket channel')
+	.addStringOption(option =>
+		option.setName('issue')
+			.setDescription('the info which you would like to tell one of the mods')
+			.setRequired(true)),
 	new SlashCommandBuilder().setName('embedtest').setDescription('tests embeds'),
 	new SlashCommandBuilder().setName('fact').setDescription('sends a random fact'),
 	new SlashCommandBuilder().setName('help').setDescription('sends the help message'),
