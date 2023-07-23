@@ -18,7 +18,7 @@ module.exports = {
             {
                 reachedRole = true;
             }
-            if (role.name == i && reachedRole == true)
+            if (role.name == i && reachedRole == true  && role.name != "Bot")
             {
                 canGive = true;
             }
