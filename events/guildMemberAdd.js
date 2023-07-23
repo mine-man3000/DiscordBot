@@ -10,8 +10,11 @@ module.exports = {
         var channel = client.channels.cache.get(server);
         channel.send(`${member.user.tag} has joined the server`)
         const embed = {
-            color: 0x68ff61,
-            title: `${member.user.tag} has been joined the server`,
+	    thumbnail: {
+		    url:    `https://cdn.discordapp.com/avatars/${member.user.id}/${member.user.avatar}.jpeg`,
+	    },
+	    color: 0x68ff61,
+            title: `${member.user.tag} has joined the server`,
             author: {
                 name: `${member.user.tag}`,
             },
