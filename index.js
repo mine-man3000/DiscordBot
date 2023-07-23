@@ -18,9 +18,6 @@ const client = new Client({
     ],
 });
 
-var log = fs.createWriteStream('logs/index.html');
-process.stdout.write = process.stderr.write = log.write.bind(log);
-
 client.commands = new Collection();
 
 const commandFiles = fs.readdirSync('./commands/').filter(file => file.endsWith('.js'));
