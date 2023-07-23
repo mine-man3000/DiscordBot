@@ -13,6 +13,10 @@
         "[object Object]",
         "[object Map]",
         "Techflash's -Ofast Gentoo install",
-        "darkerbit's haunted comparison operator"
+        "darkerbit's haunted comparison operator",
+        "INACCESSIBLE_BOOT_DEVICE",
+        "Kernel panic - not syncing: Attempted to kill init",
+        "Techflash's broken code saying ``7 == 12``",
+        "Techflash’s website with awful PHP https://cdn.discordapp.com/attachments/867248098802532366/1113912154286997584/image.png"
     ]
 }
