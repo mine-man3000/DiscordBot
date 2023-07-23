@@ -31,7 +31,7 @@ module.exports = {
                 server = config.botLogChannelID[i]
             }
         }
-        if(server) {
+        if(server && !message.author.bot) {
 			const channel = client.channels.cache.get(server);
 			channel.send({ embeds: [embed] });   	
 		}  
